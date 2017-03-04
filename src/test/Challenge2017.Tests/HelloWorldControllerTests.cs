@@ -11,6 +11,9 @@ namespace Challenge2017.Tests
 {
     public class HelloWorldControllerTests
     {
+        /// <summary>
+        /// The index class for the HelloWorld controller. Excella is nice!
+        /// </summary>
         public class Index
         {
             private readonly HelloWorldController _sut;
