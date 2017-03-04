@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Web.Http.Results;
 using Challenge2017.API.Controllers;
 using FluentAssertions;
@@ -12,10 +11,10 @@ namespace Challenge2017.Tests
     {
         public class Index
         {
-            private HelloWorldController sut;
+            private readonly HelloWorldController _sut;
             public Index()
             {
-                sut = new HelloWorldController();
+                _sut = new HelloWorldController();
             }
 
             [Fact]
@@ -23,7 +22,7 @@ namespace Challenge2017.Tests
             {
                 var emptyIntArray = new int []{};
 
-                var result = sut.Index(emptyIntArray);
+                var result = _sut.Index(emptyIntArray);
 
                 result.Should().BeAssignableTo<BadRequestResult>();
             }
@@ -37,7 +36,7 @@ namespace Challenge2017.Tests
             {
                 var emptyIntArray = new int[] { count };
 
-                var result = sut.Index(emptyIntArray);
+                var result = _sut.Index(emptyIntArray);
 
                 result.Should().BeAssignableTo<OkNegotiatedContentResult<IEnumerable<string>>>();
 
@@ -53,7 +52,7 @@ namespace Challenge2017.Tests
             {
                 var arrayWithNegativeNumber = new int[] { -1 };
 
-                var result = sut.Index(arrayWithNegativeNumber);
+                var result = _sut.Index(arrayWithNegativeNumber);
 
                 result.Should().BeAssignableTo<BadRequestResult>();
             }
@@ -63,7 +62,7 @@ namespace Challenge2017.Tests
             {
                 var emptyIntArray = new int[] { 6, 3, 5, 100 };
 
-                var result = sut.Index(emptyIntArray);
+                var result = _sut.Index(emptyIntArray);
                 var okResult = result as OkNegotiatedContentResult<IEnumerable<string>>;
                 var content = okResult.Content;
 
