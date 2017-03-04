@@ -12,10 +12,15 @@ namespace Challenge2017.Tests
     {
         public class Index
         {
+            private HelloWorldController sut;
+            public Index()
+            {
+                sut = new HelloWorldController();
+            }
+
             [Fact]
             public void EmptyArray_ReturnsBadResult()
             {
-                var sut = new HelloWorldController();
                 var emptyIntArray = new int []{};
 
                 var result = sut.Index(emptyIntArray);
@@ -30,7 +35,6 @@ namespace Challenge2017.Tests
             [InlineData(100)]
             public void WithArrayNumberXInFirstPosition_ShouldReturnXHelloWorlds(int count)
             {
-                var sut = new HelloWorldController();
                 var emptyIntArray = new int[] { count };
 
                 var result = sut.Index(emptyIntArray);
@@ -47,7 +51,6 @@ namespace Challenge2017.Tests
             [Fact]
             public void ArrayWithNegativeNumber_ReturnsBadRequest()
             {
-                var sut = new HelloWorldController();
                 var arrayWithNegativeNumber = new int[] { -1 };
 
                 var result = sut.Index(arrayWithNegativeNumber);
@@ -58,7 +61,6 @@ namespace Challenge2017.Tests
             [Fact]
             public void DoesntCareAboutAnyNumberInInputArrayExceptFirst()
             {
-                var sut = new HelloWorldController();
                 var emptyIntArray = new int[] { 6, 3, 5, 100 };
 
                 var result = sut.Index(emptyIntArray);
