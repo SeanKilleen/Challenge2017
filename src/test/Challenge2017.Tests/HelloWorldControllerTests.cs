@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http.Results;
 using Challenge2017.API.Controllers;
 using FluentAssertions;
@@ -52,6 +53,19 @@ namespace Challenge2017.Tests
                 var result = sut.Index(arrayWithNegativeNumber);
 
                 result.Should().BeAssignableTo<BadRequestResult>();
+            }
+
+            [Fact]
+            public void DoesntCareAboutAnyNumberInInputArrayExceptFirst()
+            {
+                var sut = new HelloWorldController();
+                var emptyIntArray = new int[] { 6, 3, 5, 100 };
+
+                var result = sut.Index(emptyIntArray);
+                var okResult = result as OkNegotiatedContentResult<IEnumerable<string>>;
+                var content = okResult.Content;
+
+                content.Count(x => x == "Hello World").Should().Be(6);
             }
         }
     }
