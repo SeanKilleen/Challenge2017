@@ -34,14 +34,10 @@ namespace Challenge2017.Tests
             [InlineData(100)]
             public void WithArrayNumberXInFirstPosition_ShouldReturnXHelloWorlds(int count)
             {
-                var emptyIntArray = new int[] { count };
+                var arrayWithCount = new int[] { count };
 
-                var result = _sut.Index(emptyIntArray);
-
-                result.Should().BeAssignableTo<OkNegotiatedContentResult<IEnumerable<string>>>();
-
+                var result = _sut.Index(arrayWithCount);
                 var okResult = result as OkNegotiatedContentResult<IEnumerable<string>>;
-
                 var content = okResult.Content;
 
                 content.Count(x => x == "Hello World").Should().Be(count);
