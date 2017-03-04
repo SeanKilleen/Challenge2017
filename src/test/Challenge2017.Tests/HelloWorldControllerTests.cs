@@ -1,7 +1,5 @@
-﻿using System.CodeDom;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Web.Http.Results;
 using Challenge2017.API.Controllers;
 using FluentAssertions;
