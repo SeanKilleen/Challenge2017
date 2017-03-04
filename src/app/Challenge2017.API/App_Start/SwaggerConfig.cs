@@ -98,7 +98,9 @@ namespace Challenge2017.API
                         // more Xml comment files.
                         //
                         //c.IncludeXmlComments(GetXmlCommentsPath());
-                        c.IncludeXmlComments($@"{System.AppDomain.CurrentDomain.BaseDirectory}\bin\Challenge2017.API.XML");
+
+                        // Note from Sean: you can uncomment this to view these locally, but apparently it breaks on Azure.
+                        //c.IncludeXmlComments($@"{System.AppDomain.CurrentDomain.BaseDirectory}\bin\Challenge2017.API.XML");
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
