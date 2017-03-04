@@ -12,7 +12,10 @@ namespace Challenge2017.API.Controllers
         [HttpPost]
         public IHttpActionResult Index(IEnumerable<int> inputs)
         {
+            if (!inputs.Any()) { return BadRequest(); }
             var numberToGenerate = inputs.First();
+            if (numberToGenerate < 0) { return BadRequest(); }
+
             var result = Enumerable.Repeat("Hello World", numberToGenerate);
             return Ok(result);
         }
