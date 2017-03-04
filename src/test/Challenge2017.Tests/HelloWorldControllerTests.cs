@@ -5,6 +5,8 @@ using Challenge2017.API.Controllers;
 using FluentAssertions;
 using Xunit;
 
+// ReSharper disable PossibleNullReferenceException -- the content result could be null, but if it is, the test will fail.
+
 namespace Challenge2017.Tests
 {
     public class HelloWorldControllerTests
