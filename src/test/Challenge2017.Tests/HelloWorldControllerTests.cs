@@ -34,7 +34,7 @@ namespace Challenge2017.Tests
             [InlineData(100)]
             public void WithArrayNumberXInFirstPosition_ShouldReturnXHelloWorlds(int count)
             {
-                var arrayWithCount = new int[] { count };
+                var arrayWithCount = new[] { count };
 
                 var result = _sut.Index(arrayWithCount);
                 var okResult = result as OkNegotiatedContentResult<IEnumerable<string>>;
@@ -46,7 +46,7 @@ namespace Challenge2017.Tests
             [Fact]
             public void ArrayWithNegativeNumber_ReturnsBadRequest()
             {
-                var arrayWithNegativeNumber = new int[] { -1 };
+                var arrayWithNegativeNumber = new[] { -1 };
 
                 var result = _sut.Index(arrayWithNegativeNumber);
 
@@ -56,7 +56,7 @@ namespace Challenge2017.Tests
             [Fact]
             public void DoesntCareAboutAnyNumberInInputArrayExceptFirst()
             {
-                var emptyIntArray = new int[] { 6, 3, 5, 100 };
+                var emptyIntArray = new[] { 6, 3, 5, 100 };
 
                 var result = _sut.Index(emptyIntArray);
                 var okResult = result as OkNegotiatedContentResult<IEnumerable<string>>;
