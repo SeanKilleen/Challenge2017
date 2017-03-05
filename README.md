@@ -22,23 +22,46 @@ This should be pretty straightforward. The apps should build using the standard 
 
 The tests should run in any standard test runner. My preferred runner is [NCrunch](http://ncrunch.com).
 
-## Deploying the app to Microsoft Azure
-For the purposes of the challenge, you may want to deploy the app to a public web site.
+## Deploying the app to Microsoft Azure -- The Easy Way
+For the purposes of the challenge, you may want to deploy the app to a public web site. Luckily, with Microoft Azure, you can host this web app completely for free!
 
-Luckily, with Microoft Azure, you can host this web app completely for free!
+### Step 1: Sign up for Microsoft Azure (or log in)
+If you haven't already, head to <http://portal.azure.com> and create an account.
 
-Read on below, or try the handy button below if you're familiar with it once you've cloned the repository:
+### Step 2: Clone the Repository if you haven't already
+Directions are above.
+
+### Step 3: Use the "Deploy to Azure" button
+Make sure you're on your own repo's site on Github, and then click this button:
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-#### Step 1: Sign up for Microsoft Azure (or log in)
-If you haven't already, head to <http://portal.azure.com> and create an account.
+It will ask you to sign into Azure, and then will let you select the options to deploy this site. Make sure you use the `Free` SKU.
 
-#### Create a Free Web Site to Hold the App
-TODO (will fill this out later)
+After that, this site will be up and running, and should deploy whenever you make changes to the `master` branch!
 
-#### Set Up Deployment Pipeline From Github to the App
-TODO (will fill this out later)
+## Deploy the app to Azure -- the Manual Way
 
-#### Visit your new app!
-TODO (will fill this out later)
+### Sign up & Clone
+Just as in "the easy way", sign up for an Azure account and clone this repository.
+
+### Create a Free Web Site to Hold the App
+In the Azure portal:
+
+* Click "+" to add a new resource
+* Select Web Site as the resource
+* Create a new resource group for the web site
+* Make sure that Free pricing is selected for the web site.
+
+If you need help on the specifics, [get in touch](http://twitter.com/sjkilleen).
+
+### Set Up Deployment Pipeline From Github to the App
+Once the web site has been created:
+
+* Go to the web site within the [azure portal](http://portal.azure.com)
+* Click "Deployments"
+* Click "Configure Deployments"
+* Follow the wizard steps, which will connect to your github account and configure deployment.
+
+### Visit your new app!
+Once you've set up deployment and seen that it's successful, your new web site should be available at `http://WebSiteNameYouPicked.azurewebsites.net`. Nice!
